@@ -21,7 +21,7 @@ function loadFood() {
 
 function loadContent(){
     let btnRemove = document.querySelectorAll('.cart-remove');
-    console.log(btnRemove);
+    //console.log(btnRemove.length);
     btnRemove.forEach((btn) => {
         btn.addEventListener('click', removeItem);
     });
@@ -36,6 +36,11 @@ function loadContent(){
         btn.addEventListener('click', addCart);
     });
     updateTotal();
+
+    const cartCount = document.querySelector('.cart-count');
+    let count = itemList.length;
+    cartCount.innerHTML = count;
+    
 }
 
 function removeItem() {
@@ -78,6 +83,8 @@ function addCart() {
     loadContent();
 }
 
+
+
 function createCartProduct(title, price, imgSrc) {
     return `
       <div class="cart-box">
@@ -110,7 +117,8 @@ function createCartProduct(title, price, imgSrc) {
     totalValue.innerHTML = 'Rs.' + total;
   }
 
-  // const cartCount = document.querySelector('.cart-count');
+  const cartCount = document.querySelector('.cart-count');
+  //console.log(cartCount);
   // let count = itemList.length;
   // cartCount.innerHTML = count;
 
